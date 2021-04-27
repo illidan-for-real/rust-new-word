@@ -1,5 +1,5 @@
 [package]
-name = "firstproject"
+name = "rust-new-word"
 version = "0.1.0"
 authors = ["illidan"]
 edition = "2018"

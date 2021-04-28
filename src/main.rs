@@ -80,15 +80,15 @@ fn main() {
 
         let mut rands = thread_rng();
 
-        let adjectives = ["happy","annoyed","quick","scarce","sad","strong","slow","boring","dull","jealous","obnoxious"];
+        let adjectives = ["happy","annoyed","quick","scarce","sad","strong","slow","boring","dull","jealous","obnoxious", "droll", "ridiculous", "silly", "whimsical", "adorable", "wicked", "grumpy", "spectacular", "old-fashioned", "nutty", "expensive", "clever", "adventurous", "evil", "bloody", "bad", "naughty", "thieving" ];
         let verbs = ["hit","run","cheer","laugh","cry","explode"];
         let desc = ["conveying", "insulting", "shouting","alerting"];
-        let animals = ["bats","cats","rats","koalas","apes","elephants","dolphins","beetles","whales","wolves","toads","birds","ants","squid","starfish","jellyfish","panthers","stingray","spiders","rabbits","pigs","cows","sheep","donkeys"];
-        let upping = ["enlighten","grow","break","recover","catch","eat","manipulate","wave"];
-        let bodypart = ["leg","head","foot","legs","toes","tail","face","eyes","hands"];
-        let color = ["red","blue","green","orange","light blue","dark green","pink","light purple","teal","brown"];
-        let group = ["group","colony","species","pack","swarm"];
-        let place = ["norway","england","africa","peru","india","canada","australia","outer space","thailand","poland","germany"];
+        let animals = ["bats","cats","rats","koalas","apes","elephants","dolphins","beetles","whales","wolves","toads","birds","ants","squid","starfish","jellyfish","panthers","stingray","spiders","rabbits","pigs","cows","sheep","donkeys", "zombies", "unicorns", "vampires", "starfish", "kittens", "cockroaches", "cockapoo", "hamsters", "insects", "huskydoodles", "ostriches" ];
+        let upping = ["enlighten","grow","break","recover","catch","eat","manipulate","wave","destroy", "smell", "understand", "enhance", "disguise", "identify", "mock", "clone", "control"];
+        let bodypart = ["legs","heads","foot","legs","toes","tails","faces","eyes","hands", "minds", "farts", "feathers", "eyeballs", "pie holes", "smelly socks", "dark secrets", "winning personalities", "desire for fame and fortune"];
+        let color = ["red","blue","green","orange","light blue","dark green","pink","light purple","teal","brown", "luminous", "shimmering", "white as snow", "invisible", "rainbow hued", "glowing", "crimson", "golden", "albino"];
+        let group = ["group","colony","species","pack","swarm","gang", "army", "militia", "bunch", "pile", "team", "crowd", "jury", "corporation", "class"];
+        let place = ["norway","england","africa","peru","india","canada","australia","outer space","thailand","poland","germany", "the shadow of the moon", "mars", "the mountains of uranus", "the desert", "suburban back yards", "disnyeland", "the white house", "fluffy clouds", "all over the place", "places of worship", "the bottom of your cup", "impossible places"  ];
 
         let findadj = adjectives.choose(&mut rands).unwrap();
         let findverb = verbs.choose(&mut rands).unwrap();

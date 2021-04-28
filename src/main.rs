@@ -1,4 +1,4 @@
-use rand::{self, prelude::SliceRandom, thread_rng};
+use rand::{self, Rng, prelude::SliceRandom, thread_rng};
 
 fn main() {
 
@@ -9,7 +9,7 @@ fn main() {
 
     fn genwords() -> Vec<String> {
 
-        let test_str:Vec<&str> = vec!["amazing","hilarious","snowball","articulate","hunter","paper","designated","follow","readable","remembered","volcanic","annoyance"];
+        let test_str:Vec<&str> = vec!["sauce","amazing","hilarious","snowball","articulate","hunter","paper","designated","follow","readable","remembered","volcanic","annoyance","illidan","june","money","celebrate","arbitrary","brazilian","hospitality","gravity","resteraunt","cafeteria","piggy","agility","smoke","orange","blue","brilliant","painting","grandfather"];
         let mut test_wordlist = Vec::new();
 
         let mut rng = thread_rng();
@@ -51,8 +51,19 @@ fn main() {
         }
 
 /*         println!("{:?}",a); */
+/*         println!("{:?}",&a);
+ */
+        let mut addamt = 0;
 
-        let (start,_end) = word1.split_at(a.last().unwrap().clone());
+        if a.len() == 1 {
+            addamt = 1;
+        } else {
+            addamt = 0;
+        }
+
+        let mut rng = thread_rng().gen_range(1..a.len()+addamt);
+
+        let (start,_end) = word1.split_at(a.get(rng -1).unwrap().clone());
 
         let mut nthnum =  0;
 
@@ -67,15 +78,75 @@ fn main() {
 /*         println!("{:?}",start);
         println!("{:?}",end2); */
 
+        let mut rands = thread_rng();
+
+        let adjectives = ["happy","annoyed","quick","scarce","sad","strong","slow","boring","dull","jealous","obnoxious"];
+        let verbs = ["hit","run","cheer","laugh","cry","explode"];
+        let desc = ["conveying", "insulting", "shouting","alerting"];
+        let animals = ["bats","cats","rats","koalas","apes","elephants","dolphins","beetles","whales","wolves","toads","birds","ants","squid","starfish","jellyfish","panthers","stingray","spiders","rabbits","pigs","cows","sheep","donkeys"];
+        let upping = ["enlighten","grow","break","recover","catch","eat","manipulate","wave"];
+        let bodypart = ["leg","head","foot","legs","toes","tail","face","eyes","hands"];
+        let color = ["red","blue","green","orange","light blue","dark green","pink","light purple","teal","brown"];
+        let group = ["group","colony","species","pack","swarm"];
+        let place = ["norway","england","africa","peru","india","canada","australia","outer space","thailand","poland","germany"];
+
+        let findadj = adjectives.choose(&mut rands).unwrap();
+        let findverb = verbs.choose(&mut rands).unwrap();
+        let finddesc = desc.choose(&mut rands).unwrap();
+        let findanimal = animals.choose(&mut rands).unwrap();
+        let findup = upping.choose(&mut rands).unwrap();
+        let findbpart = bodypart.choose(&mut rands).unwrap();
+        let findcolor = color.choose(&mut rands).unwrap();
+        let findgroup = group.choose(&mut rands).unwrap();
+        let findplace = place.choose(&mut rands).unwrap();
+
+
+
+        let mut new_sentence = String::new();
+
+        let mut sentence_template = String::new();
+
+        let mut randef = thread_rng().gen_range(0..2);
+
+        match randef {
+            0 => {
+                let s = format!("A {} technique used by {} to {} their {}", findadj, findanimal, findup, findbpart);
+                sentence_template.push_str(&s);
+            }
+            1 => {
+                let s = format!("A {} of {} {} usually found in {}", findgroup, findcolor, findanimal, findplace);
+                sentence_template.push_str(&s);
+            }
+            2 => {
+                let s = format!("A {} technique used by {} to {} their {}", findadj, findanimal, findup, findbpart);
+                sentence_template.push_str(&s);
+            }
+
+            _ => {
+                let s = format!("A {} technique used by {} to {} their {}", findadj, findanimal, findup, findbpart);
+                sentence_template.push_str(&s);
+            }
+        }
+        
+
+
+
+        // print sample words
         println!("sample word 1:{:?}",word1);
         println!("sample word 2:{:?}",word2);
 
+        // push start and end parts of words
         new_word.push_str(start);
         new_word.push_str(end2);
 
+        // print new word
         println!("");
         println!("{:?}",new_word);
+
+        // print definition
+        println!("{:?}",sentence_template);
         println!("");
+
 
     }
 
